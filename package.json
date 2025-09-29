@@ -1,0 +1,34 @@
+{
+  "name": "paigam",
+  "version": "1.0.0",
+  "description": "Paigam is an npm package providing ready-to-use, customizable email templates for common use cases such as verification, password resets, OTPs, welcome emails, receipts, and promotional messages.",
+  "main": "src/index.js",
+  "type": "module",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdrayyansarfaraz7/paigam.git"
+  },
+  "keywords": [
+    "email",
+    "templates",
+    "themes",
+    "verification",
+    "otp",
+    "password-reset",
+    "welcome",
+    "receipt",
+    "transactional"
+  ],
+  "author": "Md Rayyan Sarfaraz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mdrayyansarfaraz7/paigam/issues"
+  },
+  "homepage": "https://github.com/mdrayyansarfaraz7/paigam#readme"
+}
