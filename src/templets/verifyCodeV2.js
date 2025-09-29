@@ -28,23 +28,35 @@ export default function verificationEmailWithCodeV1({
   if (!logoUrl) throw new Error("Missing mandatory argument: logoUrl");
 
   const supportHtml = supportEmail
-    ? `Need help? <a href="mailto:${supportEmail}" style="color:${color}; text-decoration:none;">Contact Support</a>`
+    ? `<a href="mailto:${supportEmail}" style="color:${color}; text-decoration:none;">Contact Support</a>`
     : "";
 
   const websiteHtml = companyWebsite
-    ? `&nbsp;|&nbsp;<a href="${companyWebsite}" style="color:${color}; text-decoration:none;">Visit our website</a>`
+    ? `<a href="${companyWebsite}" style="color:${color}; text-decoration:none;">Visit our website</a>`
     : "";
+
+  // Footer links with proper separator
+  const footerLinks = [supportHtml, websiteHtml].filter(Boolean).join(" &nbsp;|&nbsp; ");
 
   return `
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Verification</title>
+</head>
 <body style="margin:0; padding:0; background-color:#f4f4f4; font-family:Arial, sans-serif;">
+
+  <!-- Outer Wrapper -->
   <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding:30px 0;">
     <tr>
       <td align="center">
+
+        <!-- Content Container -->
         <table width="600" border="0" cellspacing="0" cellpadding="0" style="background-color:#ffffff; border-radius:6px; box-shadow:0 2px 6px rgba(0,0,0,0.05);">
           <tr>
             <td style="padding:20px 30px; text-align:left;">
-              <img src="${logoUrl}" alt="${companyName}" style="max-width:150px; height:auto;">
+              <img src="${logoUrl}" alt="${companyName} logo" style="max-width:150px; height:auto; display:block;">
             </td>
           </tr>
           <tr>
@@ -60,22 +72,25 @@ export default function verificationEmailWithCodeV1({
               </p>
               <p style="font-size:14px; color:#777777; line-height:1.6; margin:20px 0 0 0;">
                 This code will expire in ${expirationTime} minutes.<br>
-                If you did not request this, please ignore this email.${supportEmail ? ` ${supportHtml}` : ""}
+                If you did not request this, please ignore this email.${supportHtml ? ` For help, ${supportHtml}` : ""}
               </p>
             </td>
           </tr>
         </table>
 
+        <!-- Footer -->
         <table width="600" border="0" cellspacing="0" cellpadding="0" style="margin-top:25px; text-align:center;">
           <tr>
             <td style="font-size:12px; color:#999999; line-height:1.5; padding:10px 0;">
-              © ${new Date().getFullYear()}  ${companyName}. All rights reserved.${supportEmail ? ` ${supportHtml}` : ""}${websiteHtml}
+              © ${new Date().getFullYear()} ${companyName}. All rights reserved.${footerLinks ? `<br>${footerLinks}` : ""}
             </td>
           </tr>
         </table>
+
       </td>
     </tr>
   </table>
+
 </body>
 </html>
   `;

@@ -11,8 +11,8 @@
  * @param {string} options.logoUrl - URL of company logo (mandatory)
  * @param {string} options.companyWebsite - URL of company website (optional, default "")
  * @returns {string} HTML string of the email
- * 
  */
+
 export default function verificationEmailWithCodeV1({
   color = "#000000",
   username = "user",
@@ -23,35 +23,42 @@ export default function verificationEmailWithCodeV1({
   logoUrl,
   companyWebsite = ""
 }) {
-
   if (!verificationCode) throw new Error("Missing mandatory argument: verificationCode");
   if (!expirationTime) throw new Error("Missing mandatory argument: expirationTime");
   if (!companyName) throw new Error("Missing mandatory argument: companyName");
   if (!logoUrl) throw new Error("Missing mandatory argument: logoUrl");
 
   const supportHtml = supportEmail
-    ? ` For help, contact <a href="mailto:${supportEmail}" style="color:${color}; text-decoration:none;">${supportEmail}</a>.`
+    ? `<a href="mailto:${supportEmail}" style="color:${color}; text-decoration:none;">Contact Support</a>`
     : "";
 
   const websiteHtml = companyWebsite
-    ? `&nbsp;|&nbsp;<a href="${companyWebsite}" style="color:${color}; text-decoration:none;">Visit our website</a>`
+    ? `<a href="${companyWebsite}" style="color:${color}; text-decoration:none;">Visit our website</a>`
     : "";
+
+  // Footer links with proper separator
+  const footerLinks = [supportHtml, websiteHtml].filter(Boolean).join(" &nbsp;|&nbsp; ");
 
   return `
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Verification</title>
+</head>
 <body style="margin:0; padding:0; font-family: Arial, sans-serif; background-color:#f4f4f4;">
+
   <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f4f4; padding:40px 0;">
     <tr>
       <td align="center">
+
         <table width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff; border-radius:8px; box-shadow:0 6px 18px rgba(16,24,40,0.06); overflow:hidden;">
           <tr>
             <td style="padding:0; border-bottom:1px solid #ebebeb;">
               <table width="100%" cellpadding="0" cellspacing="0">
                 <tr>
                   <td width="150" valign="middle" style="padding:18px 20px;">
-                    <img src="${logoUrl}"
-                         alt="${companyName} Logo"
-                         style="display:block; max-width:130px; height:auto; border:0; outline:none;">
+                    <img src="${logoUrl}" alt="${companyName} Logo" style="display:block; max-width:130px; height:auto; border:0;">
                   </td>
                   <td valign="middle" style="padding:0 20px 0 0;">
                     <div style="font-size:18px; font-weight:600; color:#111111; line-height:1;">
@@ -82,14 +89,14 @@ export default function verificationEmailWithCodeV1({
               </div>
 
               <p style="font-size:14px; color:#666666; margin:18px 0 0 0;">
-                If you did not request this, simply ignore this email.${supportHtml}
+                If you did not request this, simply ignore this email.${supportHtml ? ` For help, ${supportHtml}` : ""}
               </p>
             </td>
           </tr>
 
           <tr>
             <td style="background-color:#fafafa; padding:18px 24px; text-align:center; font-size:12px; color:#888888;">
-              © ${new Date().getFullYear()} ${companyName}. All rights reserved. ${websiteHtml}
+              © ${new Date().getFullYear()} ${companyName}. All rights reserved.${footerLinks ? `<br>${footerLinks}` : ""}
             </td>
           </tr>
 
@@ -97,10 +104,8 @@ export default function verificationEmailWithCodeV1({
       </td>
     </tr>
   </table>
+
 </body>
 </html>
   `;
 }
-
-
-
