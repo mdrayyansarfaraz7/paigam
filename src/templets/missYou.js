@@ -54,7 +54,7 @@ export default function weMissYouEmail({
                   <img src="${backgroundImage}" alt="We Miss You Banner" width="640" height="320" style="display:block; width:100%; height:auto;">
 
                   <!-- Gradient overlay using the color argument -->
-                  <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(to bottom right, #000000A6, ${color}B3);"></div>
+                  <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(to bottom right, #000000A6, #000000b9);"></div>
 
                   <!-- Text content -->
                   <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:80%;">

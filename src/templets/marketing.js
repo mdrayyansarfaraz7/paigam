@@ -68,13 +68,13 @@ export default function specialOfferEmail({
               </td>
             </tr>
 
-            <!-- Hero Banner -->
+            <!-- Hero Banner with background -->
             <tr>
-              <td style="position:relative;">
-                <div style="position:relative; text-align:center; color:white;">
-                  <img src="${bannerImage}" alt="Special Offer Banner" width="640" height="280" style="display:block; width:100%; height:auto; filter:brightness(65%); border-bottom:1px solid #eaeaea;">
-                  <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:80%;">
-                    <h1 style="margin:0 0 10px 0; font-size:36px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#ffffff;">
+              <td background="${bannerImage}" bgcolor="#000000" width="640" height="280" valign="middle" style="text-align:center; vertical-align:middle; color:#ffffff; font-family:Arial, sans-serif;">
+                <!-- Fallback for non-supporting email clients -->
+                <div style="width:100%; height:480px; background-image:url('${bannerImage}'); background-size:cover; background-position:center; text-align:center; display:flex; align-items:center; justify-content:center; padding:0 20px;">
+                  <div>
+                    <h1 style="margin:5px 5px 10px 2px; font-size:42px; font-weight:700; text-transform:uppercase; color:#ffffff; line-height:1.2;">
                       ${offerTitle}
                     </h1>
                     <p style="margin:0; font-size:16px; color:#f1f1f1; line-height:1.5;">
@@ -101,7 +101,7 @@ export default function specialOfferEmail({
             <!-- Footer -->
             <tr>
               <td style="padding:20px; font-size:12px; color:#999; text-align:center; border-top:1px solid #eee;">
-                © ${new Date().getFullYear()} ${companyName}. All rights reserved.<br>
+                © ${new Date().getFullYear()} ${companyName}. All rights reserved.
               </td>
             </tr>
 
@@ -115,3 +115,4 @@ export default function specialOfferEmail({
   </html>
   `;
 }
+

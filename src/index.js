@@ -1,25 +1,25 @@
-import verificationEmailWithCodeV1 from "./templets/verifyCodeV1";
-import verificationEmailWithCodeV2 from "./templets/verifyCodeV2";
+import verificationEmailWithCodeV1 from "./templets/verifyCodeV1.js";
+import verificationEmailWithCodeV2 from "./templets/verifyCodeV2.js";
 
-import verificationEmailWithLinkV1 from "./templets/verifyLinkV1";
-import verificationEmailWithLinkV2 from "./templets/verifyLinkV2";
+import verificationEmailWithLinkV1 from "./templets/verifyLinkV1.js";
+import verificationEmailWithLinkV2 from "./templets/verifyLinkV2.js";
 
-import resetPasswordEmailV1 from "./templets/resetPasswordV1";
-import resetPasswordEmailV2 from "./templets/resetPasswordV2";
+import resetPasswordEmailV1 from "./templets/resetPasswordV1.js";
+import resetPasswordEmailV2 from "./templets/resetPasswordV2.js";
 
-import otpEmailV1 from "./templets/otpV1";
-import otpEmailV2 from "./templets/otpV2";
+import otpEmailV1 from "./templets/otpV1.js";
+import otpEmailV2 from "./templets/otpV2.js";
 
-import feedbackEmailV1 from "./templets/feedbackV1";
-import feedbackEmailV2 from "./templets/feedbackV2";
+import feedbackEmailV1 from "./templets/feedbackV1.js";
+import feedbackEmailV2 from "./templets/feedbackV2.js";
 
-import weMissYouEmail from "./templets/missYou";
-import specialOfferEmail from "./templets/marketing";
-import welcomeEmail from "./templets/welcome";
+import weMissYouEmail from "./templets/missYou.js";
+import specialOfferEmail from "./templets/marketing.js";
+import welcomeEmail from "./templets/welcome.js";
 
-import orderConfirmationEmail from "./templets/orderConfermation";
-import deliveryNotificationEmail from "./templets/delivery";
-import paymentReceiptEmail from "./templets/reciept";
+import orderConfirmationEmail from "./templets/orderConfermation.js";
+import deliveryNotificationEmail from "./templets/delivery.js";
+import paymentReceiptEmail from "./templets/reciept.js";
 
 
 const paigam = {

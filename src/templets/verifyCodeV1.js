@@ -89,7 +89,7 @@ export default function verificationEmailWithCodeV1({
               </div>
 
               <p style="font-size:14px; color:#666666; margin:18px 0 0 0;">
-                If you did not request this, simply ignore this email.${supportHtml ? ` For help, ${supportHtml}` : ""}
+                If you did not request this, please update your password.${supportHtml ? ` For help, ${supportHtml}` : ""}
               </p>
             </td>
           </tr>

@@ -9,7 +9,6 @@
  * @param {string} options.shippingAddress - Shipping address (mandatory)
  * @param {string} options.trackLink - Tracking link URL (mandatory)
  * @param {string} options.primaryColor - Primary brand color (default: "#000000")
- * @param {string} options.deliveryIconUrl - Icon URL for delivery (optional, default is package icon)
  * @returns {string} HTML string
  */
 export default function deliveryNotificationEmail({
@@ -20,7 +19,6 @@ export default function deliveryNotificationEmail({
   shippingAddress,
   trackLink,
   primaryColor = "#000000",
-  deliveryIconUrl = "https://img.icons8.com/ios-filled/50/000000/delivery--v1.png"
 }) {
   if (!companyName) throw new Error("Missing mandatory argument: companyName");
   if (!logoUrl) throw new Error("Missing mandatory argument: logoUrl");
@@ -47,11 +45,12 @@ export default function deliveryNotificationEmail({
 
             <!-- Header Icon -->
             <tr>
-              <td align="center" style="padding:50px 0 20px 0;">
-                <div style="width:80px; height:80px; border-radius:50%; background-color:#e6f0ff; display:flex; align-items:center; justify-content:center;">
-                  <img src="${deliveryIconUrl}" alt="Delivery Icon" style="width:40px; height:40px;">
-                </div>
+            <!-- Company Logo -->
+            <tr>
+              <td align="center" style="padding-bottom:20px;">
+                <img src="${logoUrl}" alt="${companyName} Logo" style="max-width:120px; height:auto; display:inline-block;">
               </td>
+            </tr>
             </tr>
 
             <!-- Message -->
@@ -94,12 +93,7 @@ export default function deliveryNotificationEmail({
               </td>
             </tr>
 
-            <!-- Company Logo -->
-            <tr>
-              <td align="center" style="padding-bottom:20px;">
-                <img src="${logoUrl}" alt="${companyName} Logo" style="max-width:120px; height:auto; display:inline-block;">
-              </td>
-            </tr>
+
 
             <!-- Footer -->
             <tr>
