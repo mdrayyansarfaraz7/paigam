@@ -1,5 +1,5 @@
 /**
- * Generates HTML for a one time password email.
+ * Generates HTML for an one time password email.
  *
  * @param {Object} options
  * @param {string} options.color - Primary color of the email (optional, default "#000000")

@@ -1,5 +1,5 @@
 /**
- * Generates HTML for a verification email through link.
+ * Generates HTML for a reset password email.
  *
  * @param {Object} options
  * @param {string} options.color - Primary color of the email (optional, default "#000000")
