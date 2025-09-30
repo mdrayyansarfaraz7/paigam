@@ -12,6 +12,7 @@
  * @param {string} options.companyWebsite - URL of company website (optional, default "")
  * @returns {string} HTML string of the email
  */
+
 export default function verificationEmailWithCodeV1({
   color = "#000000",
   username = "user",
