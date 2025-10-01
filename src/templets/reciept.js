@@ -14,7 +14,6 @@
  * @param {string} options.currency - Currency symbol (default: "$")
  * @param {string} options.billingAddress - Billing address (mandatory)
  * @param {string} options.shippingAddress - Shipping address (mandatory)
- * @param {string} options.primaryColor - Primary brand color (default: "#4a90e2")
  * @returns {string} HTML string of the receipt
  */
 export default function paymentReceiptEmail({
@@ -30,7 +29,6 @@ export default function paymentReceiptEmail({
   currency = "$",
   billingAddress,
   shippingAddress,
-  primaryColor = "#4a90e2"
 }) {
   if (!companyName) throw new Error("Missing mandatory argument: companyName");
   if (!logoUrl) throw new Error("Missing mandatory argument: logoUrl");

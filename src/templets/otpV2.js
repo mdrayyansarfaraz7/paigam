@@ -3,7 +3,6 @@
  *
  * @param {Object} options
  * @param {string} options.color - Primary color of the email (optional, default "#000000")
- * @param {string} options.username - Recipient's name (optional, default "user")
  * @param {string|number} options.otp - otp (mandatory)
  * @param {number} options.expirationTime - Expiration time in minutes (mandatory)
  * @param {string} options.companyName - Name of the company (mandatory)
@@ -15,7 +14,6 @@
 
 export default function otpEmailV2({
     color = "#000000",
-    username = "user",
     otp,
     expirationTime,
     companyName,

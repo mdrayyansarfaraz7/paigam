@@ -17,7 +17,7 @@ import weMissYouEmail from "./templets/missYou.js";
 import specialOfferEmail from "./templets/marketing.js";
 import welcomeEmail from "./templets/welcome.js";
 
-import orderConfirmationEmail from "./templets/orderConfermation.js";
+import orderConfirmationEmail from "./templets/orderConfirmation.js";
 import deliveryNotificationEmail from "./templets/delivery.js";
 import paymentReceiptEmail from "./templets/reciept.js";
 
