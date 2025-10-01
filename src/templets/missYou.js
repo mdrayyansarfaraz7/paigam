@@ -20,7 +20,8 @@ export default function weMissYouEmail({
   if (!navLink) throw new Error("Missing mandatory argument: navLink");
   if (!companyName) throw new Error("Missing mandatory argument: companyName");
 
-  const defaultBgImage = "https://media.istockphoto.com/id/623368750/photo/sacred-birma-cat-in-interior.jpg?s=612x612&w=0&k=20&c=KfNi_sRwTCtXTnnUvEYVBnRg9arrA3JBC7SppRtSRzs=";
+  const defaultBgImage =
+    "https://media.istockphoto.com/id/623368750/photo/sacred-birma-cat-in-interior.jpg?s=612x612&w=0&k=20&c=KfNi_sRwTCtXTnnUvEYVBnRg9arrA3JBC7SppRtSRzs=";
   const backgroundImage = bgImageUrl || defaultBgImage;
 
   return `
@@ -32,11 +33,11 @@ export default function weMissYouEmail({
   </head>
   <body style="margin:0; padding:0; background-color:#f5f6f8; font-family:Arial, sans-serif;">
 
-    <table width="100%" cellspacing="0" cellpadding="0" style="padding:40px 0;">
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="padding:40px 0;">
       <tr>
         <td align="center">
 
-          <table width="640" cellspacing="0" cellpadding="0"
+          <table width="640" cellspacing="0" cellpadding="0" border="0"
             style="background-color:#ffffff; border-radius:8px; box-shadow:0 3px 8px rgba(0,0,0,0.05); overflow:hidden;">
 
             <!-- Header -->
@@ -48,27 +49,32 @@ export default function weMissYouEmail({
 
             <!-- Hero Section -->
             <tr>
-              <td style="position:relative;">
-                <div style="position:relative; text-align:center; color:white; font-family:Arial, sans-serif;">
-                  <!-- Background image -->
-                  <img src="${backgroundImage}" alt="We Miss You Banner" width="640" height="320" style="display:block; width:100%; height:auto;">
+              <td background="${backgroundImage}" width="640" height="320" valign="middle"
+                  style="background-size:cover; background-position:center; text-align:center; padding:40px;">
 
-                  <!-- Gradient overlay using the color argument -->
-                  <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(to bottom right, #000000A6, #000000b9);"></div>
+                <!-- Dark overlay hack using a table -->
+                <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0"
+                       style="background: rgba(0,0,0,0.6);">
+                  <tr>
+                    <td align="center" valign="middle" style="padding:20px;">
 
-                  <!-- Text content -->
-                  <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:80%;">
-                    <h1 style="margin:0 0 15px 0; font-size:48px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#ffffff; line-height:1.2;">
-                      We Miss You
-                    </h1>
-                    <p style="margin:0 0 25px 0; font-size:18px; color:#f1f1f1; line-height:1.6;">
-                      It’s been a while since your last visit. Come see what’s new — fresh updates, exciting features, and more just for you.
-                    </p>
-                    <a href="${navLink}" style="background-color:#ffffff; color:${color}; padding:14px 36px; text-decoration:none; font-weight:bold; font-size:16px; border-radius:6px; box-shadow:0 4px 10px rgba(0,0,0,0.25);">
-                      Come Back
-                    </a>
-                  </div>
-                </div>
+                      <h1 style="margin:0 0 15px 0; font-size:42px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#ffffff; line-height:1.2;">
+                        We Miss You
+                      </h1>
+
+                      <p style="margin:0 0 25px 0; font-size:18px; color:#f1f1f1; line-height:1.6; max-width:500px;">
+                        It’s been a while since your last visit. Come see what’s new — fresh updates, exciting features, and more just for you.
+                      </p>
+
+                      <a href="${navLink}" 
+                         style="background-color:#ffffff; color:${color}; padding:14px 36px; text-decoration:none; font-weight:bold; font-size:16px; border-radius:6px; display:inline-block;">
+                        Come Back
+                      </a>
+
+                    </td>
+                  </tr>
+                </table>
+
               </td>
             </tr>
 
