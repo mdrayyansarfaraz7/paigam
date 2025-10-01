@@ -1,6 +1,6 @@
 {
   "name": "paigam",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Paigam is an npm package providing ready-to-use, customizable email templates for common use cases such as verification, password resets, OTPs, welcome emails, receipts, and promotional messages.",
   "main": "src/index.js",
   "type": "module",
